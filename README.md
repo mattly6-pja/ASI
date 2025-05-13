@@ -1,1 +1,1 @@
-Exploratory data analysis is available in /stroke-predictor/docs/eda.html file.
+Exploratory data analysis is available in [eda.html](/stroke-predictor/docs/eda.html)
