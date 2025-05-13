@@ -1,0 +1,1 @@
+Exploratory data analysis is available in /stroke-predictor/docs/eda.html file.
