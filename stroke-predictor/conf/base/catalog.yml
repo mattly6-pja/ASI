@@ -3,6 +3,14 @@
 # Documentation for this file format can be found in "The Data Catalog"
 # Link: https://docs.kedro.org/en/stable/data/data_catalog.html
 
-data1:
-    type: pandas.CSVDataSet
+stroke_data:
+    type: pandas.CSVDataset
     filepath: data/01_raw/stroke-data.csv
+
+cleaned_data:
+    type: pandas.ParquetDataset
+    filepath: data/02_intermediate/cleaned-data.parquet
+
+scaled_data:
+    type: pandas.ParquetDataset
+    filepath: data/05_model_input/scaled-data.parquet
