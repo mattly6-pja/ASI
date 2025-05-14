@@ -14,6 +14,8 @@ To run, after cloning:
    `pip install -r requirements.txt`  
 5. Run kedro:  
    `kedro run`
-   
+
 
 Exploratory data analysis is available in [eda.html](/stroke-predictor/docs/eda.html)
+
+Metrics for the models are available in [metrics file](/stroke-predictor/data/08_reporting/best_models_metrics.csv)
