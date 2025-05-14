@@ -18,4 +18,4 @@ To run, after cloning:
 
 Exploratory data analysis is available in [eda.html](/stroke-predictor/docs/eda.html)
 
-Metrics for the models are available in [metrics file](/stroke-predictor/data/08_reporting/best_models_metrics.csv)
+Metrics for the models are available in mertrics file at:/stroke-predictor/data/08_reporting/best_models_metrics.csv
