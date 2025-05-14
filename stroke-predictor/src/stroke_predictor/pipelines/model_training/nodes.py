@@ -18,7 +18,7 @@ def split_data(data: pd.DataFrame, test_size: float = 0.2):
     }
 
 
-def train_model(split_output: dict, top_n: int = 5):
+def train_model(split_output: dict, top_n: int = 15):
 
     X_res = split_output["X_resampled"]
     X_test = split_output["X_test"]
@@ -49,9 +49,9 @@ def train_model(split_output: dict, top_n: int = 5):
         predict_model(model, data=test_df)
         metrics = pull()
         metrics['model_name'] = model_name
-        metrics_list.append(metrics.to_dict())
+        metrics_list.append(metrics)
 
-    metrics_df = pd.DataFrame(metrics_list)
+    metrics_df = pd.concat(metrics_list, ignore_index=True)
     metrics_df["F1"] = pd.to_numeric(metrics_df["F1"], errors="coerce")
     metrics_df = metrics_df.sort_values(by="F1", ascending=False)
     metrics_df.to_csv("data/08_reporting/best_models_metrics.csv", index=False)
