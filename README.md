@@ -13,8 +13,9 @@ To run, after cloning:
 4. Install required packages:  
    `pip install -r requirements.txt`  
 5. Run kedro:  
-   `kedro run`
-
+   `kedro run`  
+6. You can also see pipeline visualisation by using below command:  
+   `kedro viz`
 
 Exploratory data analysis is available in [eda.html](/stroke-predictor/docs/eda.html)
 
