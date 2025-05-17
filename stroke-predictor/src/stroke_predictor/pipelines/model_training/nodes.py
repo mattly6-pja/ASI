@@ -53,6 +53,8 @@ def train_model(split_output: dict, top_n: int = 15):
 
     metrics_df = pd.concat(metrics_list, ignore_index=True)
     metrics_df["F1"] = pd.to_numeric(metrics_df["F1"], errors="coerce")
+    f1 = metrics_df.pop("F1")
+    metrics_df.insert(1, "F1", f1) # place F1 after model_name as this is the most important metric for us
     metrics_df = metrics_df.sort_values(by="F1", ascending=False)
     metrics_df.to_csv("data/08_reporting/best_models_metrics.csv", index=False)
 
