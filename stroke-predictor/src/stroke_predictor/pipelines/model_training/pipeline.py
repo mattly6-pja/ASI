@@ -4,9 +4,15 @@ from .nodes import split_data, train_model
 
 def create_pipeline(**kwargs) -> Pipeline:
     return pipeline([
+        # node(
+        #     func=split_data,
+        #     inputs=["scaled_data"],
+        #     outputs="split_output",
+        #     name="split_data_node",
+        # ),
         node(
             func=split_data,
-            inputs=["scaled_data"],
+            inputs=["preprocessed_data"],
             outputs="split_output",
             name="split_data_node",
         ),

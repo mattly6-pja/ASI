@@ -14,3 +14,11 @@ cleaned_data:
 scaled_data:
   type: pandas.ParquetDataset
   filepath: data/05_model_input/scaled-data.parquet
+
+preprocessed_data:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/preprocessed_data.parquet
+
+column_transformer:
+  type: pickle.PickleDataset
+  filepath: data/06_models/preprocessor/column_transformer.pkl
