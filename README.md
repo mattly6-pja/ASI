@@ -8,8 +8,8 @@ To run, after cloning:
        `./.venv/Scripts/activate`  
      _If on Windows:_  
        `.\.venv\Scripts\activate.bat`
-3. Proceed to stroke-predictor folder:  
-   `cd stroke-predictor`   
+3. Proceed to diabetes-predictor folder:  
+   `cd diabetes-predictor`   
 4. Install required packages:  
    `pip install -r requirements.txt`  
 5. Run kedro:  
@@ -18,4 +18,4 @@ To run, after cloning:
 
 Exploratory data analysis is available in [eda.html](/diabetes-predictor/docs/eda.html)
 
-Metrics for the models are available in mertrics file at: /stroke-predictor/data/08_reporting/best_models_metrics.csv
+Metrics for the models are available in mertrics file at: /diabetes-predictor/data/08_reporting/best_models_metrics.csv
