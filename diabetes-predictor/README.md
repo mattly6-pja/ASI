@@ -1,4 +1,4 @@
-# stroke_predictor
+# diabetes_predictor
 
 [![Powered by Kedro](https://img.shields.io/badge/powered_by-kedro-ffc900?logo=kedro)](https://kedro.org)
 

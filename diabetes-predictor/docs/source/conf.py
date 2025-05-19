@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 
-# stroke_predictor documentation build
+# diabetes_predictor documentation build
 # configuration file, created by sphinx-quickstart.
 #
 # This file is execfile()d with the current directory set to its
@@ -21,11 +21,11 @@ import re
 
 from kedro.framework.cli.utils import find_stylesheets
 
-from stroke_predictor import __version__ as release
+from diabetes_predictor import __version__ as release
 
 # -- Project information -----------------------------------------------------
 
-project = "stroke_predictor"
+project = "diabetes_predictor"
 author = "Kedro"
 
 # The short X.Y version.
@@ -119,7 +119,7 @@ html_show_sourcelink = False
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = "stroke_predictordoc"
+htmlhelp_basename = "diabetes_predictordoc"
 
 # -- Options for LaTeX output ------------------------------------------------
 
@@ -147,8 +147,8 @@ latex_elements = {
 latex_documents = [
     (
         master_doc,
-        "stroke_predictor.tex",
-        "stroke_predictor Documentation",
+        "diabetes_predictor.tex",
+        "diabetes_predictor Documentation",
         "Kedro",
         "manual",
     )
@@ -161,8 +161,8 @@ latex_documents = [
 man_pages = [
     (
         master_doc,
-        "stroke_predictor",
-        "stroke_predictor Documentation",
+        "diabetes_predictor",
+        "diabetes_predictor Documentation",
         [author],
         1,
     )
@@ -176,11 +176,11 @@ man_pages = [
 texinfo_documents = [
     (
         master_doc,
-        "stroke_predictor",
-        "stroke_predictor Documentation",
+        "diabetes_predictor",
+        "diabetes_predictor Documentation",
         author,
-        "stroke_predictor",
-        "Project stroke_predictor codebase.",
+        "diabetes_predictor",
+        "Project diabetes_predictor codebase.",
         "Data-Science",
     )
 ]

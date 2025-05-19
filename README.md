@@ -16,6 +16,6 @@ To run, after cloning:
    `kedro run`
 
 
-Exploratory data analysis is available in [eda.html](/stroke-predictor/docs/eda.html)
+Exploratory data analysis is available in [eda.html](/diabetes-predictor/docs/eda.html)
 
 Metrics for the models are available in mertrics file at: /stroke-predictor/data/08_reporting/best_models_metrics.csv
