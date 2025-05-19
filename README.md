@@ -14,7 +14,7 @@ To run, after cloning:
    `pip install -r requirements.txt`  
 5. Run kedro:  
    `kedro run`  
-6. After kedro is finished, you can run the app via streamlit:
+6. After kedro is finished, you can run the app via streamlit:  
    `streamlit run streamlit_app.py`  
 
 Exploratory data analysis is available in [eda.html](/diabetes-predictor/docs/eda.html)
