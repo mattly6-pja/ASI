@@ -27,7 +27,7 @@ def scale_data(data: pd.DataFrame) -> pd.DataFrame:
     return data
 
 
-def preprocess_data(data: pd.DataFrame) -> pd.DataFrame:
+def preprocess_stroke_data(data: pd.DataFrame) -> pd.DataFrame:
     data = data.copy()
     data = data[data["gender"] != "Other"]
     data["bmi"] = data["bmi"].fillna(data["bmi"].median())
@@ -59,5 +59,41 @@ def preprocess_data(data: pd.DataFrame) -> pd.DataFrame:
     df_out["stroke"] = y.values
 
     joblib.dump(preprocessor, "data/06_models/preprocessor.pkl")
+
+    return df_out
+
+
+def preprocess_diabetes_data(data: pd.DataFrame) -> pd.DataFrame:
+    data_copy = data.copy()
+
+    data_copy["smoking_history"] = data_copy["smoking_history"].apply(lambda x: "smoker" if x in ["former", "current"] else "non-smoker")
+
+    numeric_cols = ["age", "blood_glucose_level", "bmi", "HbA1c_level"]
+    categorical_cols = ["gender", "smoking_history"]
+    passthrough_cols = ["hypertension", "heart_disease"]
+
+    X = data_copy[numeric_cols + categorical_cols + passthrough_cols]
+    y = data_copy["diabetes"]
+
+    preprocessor_diabetes = ColumnTransformer(
+        transformers=[
+            ("num", MinMaxScaler(), numeric_cols),
+            ("cat", OneHotEncoder(sparse_output=False, handle_unknown="ignore"), categorical_cols),
+        ],
+        remainder="passthrough"
+    )
+
+    transformed = preprocessor_diabetes.fit_transform(X)
+
+    feature_names = (
+            numeric_cols
+            + list(preprocessor_diabetes.named_transformers_["cat"].get_feature_names_out(categorical_cols))
+            + passthrough_cols
+    )
+
+    df_out = pd.DataFrame(transformed, columns=feature_names, index=data_copy.index)
+    df_out["diabetes"] = y.values
+
+    joblib.dump(preprocessor_diabetes, "data/06_models/diabetes/preprocessor_diabetes.pkl")
 
     return df_out

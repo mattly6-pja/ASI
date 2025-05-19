@@ -7,6 +7,10 @@ stroke_data:
   type: pandas.CSVDataset
   filepath: data/01_raw/stroke-data.csv
 
+diabetes_data:
+  type: pandas.CSVDataset
+  filepath: data/01_raw/diabetes-dataset.csv
+
 cleaned_data:
   type: pandas.ParquetDataset
   filepath: data/02_intermediate/cleaned-data.parquet
@@ -18,6 +22,10 @@ scaled_data:
 preprocessed_data:
   type: pandas.ParquetDataset
   filepath: data/05_model_input/preprocessed_data.parquet
+
+preprocessed_data_diabetes:
+  type: pandas.ParquetDataset
+  filepath: data/05_model_input/preprocessed_data_diabetes.parquet
 
 column_transformer:
   type: pickle.PickleDataset
