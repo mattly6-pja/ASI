@@ -6,7 +6,7 @@ import joblib
 import matplotlib.pyplot as plt
 
 model = joblib.load("data/06_models/best_model.pkl")
-preprocessor = joblib.load("data/06_models/preprocessor_diabetes.pkl")
+preprocessor = joblib.load("data/06_models/preprocessor.pkl")
 
 st.title("Sprawdź jakie jest Twoje ryzyko zachorowania na cukrzycę!")
 

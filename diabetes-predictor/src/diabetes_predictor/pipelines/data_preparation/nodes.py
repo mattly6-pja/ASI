@@ -35,6 +35,6 @@ def preprocess_data(data: pd.DataFrame) -> pd.DataFrame:
     df_out = pd.DataFrame(transformed, columns=feature_names, index=data_copy.index)
     df_out["diabetes"] = y.values
 
-    joblib.dump(preprocessor_diabetes, "data/06_models/preprocessor_diabetes.pkl")
+    joblib.dump(preprocessor_diabetes, "data/06_models/preprocessor.pkl")
 
     return df_out
