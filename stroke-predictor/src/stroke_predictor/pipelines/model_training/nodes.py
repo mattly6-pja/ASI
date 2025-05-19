@@ -2,6 +2,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from imblearn.over_sampling import SMOTE
 from pycaret.classification import setup, compare_models, predict_model, pull, save_model
+import joblib
 
 
 def split_data(data: pd.DataFrame, test_size: float = 0.2):
@@ -16,52 +17,6 @@ def split_data(data: pd.DataFrame, test_size: float = 0.2):
         "y_resampled": y_res,
         "y_test": y_test
     }
-
-
-# def train_model(split_output: dict, top_n: int = 15):
-#
-#     X_res = split_output["X_resampled"]
-#     X_test = split_output["X_test"]
-#     y_res = split_output["y_resampled"]
-#     y_test = split_output["y_test"]
-#
-#     train = pd.concat([X_res, y_res], axis=1)
-#     train.columns = list(X_res.columns) + ['stroke']
-#
-#     setup(
-#         data=train,
-#         target='stroke',
-#         session_id=123,
-#         fix_imbalance=True,
-#         verbose=False,
-#     )
-#
-#     top_models = compare_models(n_select=top_n)
-#
-#     metrics_list = []
-#
-#     for i, model in enumerate(top_models):
-#         model_name = type(model).__name__
-#         save_model(model, f"data/06_models/{model_name}")
-#
-#         test_df = X_test.copy()
-#         test_df['stroke'] = y_test.values
-#         predict_model(model, data=test_df)
-#         metrics = pull()
-#         metrics['model_name'] = model_name
-#         metrics_list.append(metrics)
-#
-#     metrics_df = pd.concat(metrics_list, ignore_index=True)
-#     metrics_df["F1"] = pd.to_numeric(metrics_df["F1"], errors="coerce")
-#     f1 = metrics_df.pop("F1")
-#     metrics_df.insert(1, "F1", f1) # place F1 after model_name as this is the most important metric for us
-#     metrics_df = metrics_df.sort_values(by="F1", ascending=False)
-#     metrics_df.to_csv("data/08_reporting/best_models_metrics.csv", index=False)
-#
-#     return top_models[0]
-
-import pandas as pd
-from pycaret.classification import setup, compare_models, predict_model, pull, save_model
 
 
 def train_model(split_output: dict, top_n: int = 15):
@@ -109,6 +64,7 @@ def train_model(split_output: dict, top_n: int = 15):
     top3 = metrics_df.head(3)
     best_model_name = top3.sort_values(by="Recall", ascending=False).iloc[0]["model_name"]
     best_model = dict(model_objs)[best_model_name]
-    save_model(best_model, "data/06_models/stroke_model")
+
+    joblib.dump(best_model, "data/06_models/stroke_model_raw.pkl")
 
     return best_model
