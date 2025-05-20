@@ -4,11 +4,14 @@ WORKDIR /app
 
 COPY . .
 
+RUN apt-get update && apt-get install -y --no-install-recommends libgomp1
+
 RUN pip install --upgrade pip && \
     pip install --no-cache-dir -r requirements.txt
 
-ENV KEDRO_ENV=base
+COPY entrypoint.sh /app/entrypoint.sh
+RUN chmod +x /app/entrypoint.sh
 
-EXPOSE 8501
+EXPOSE 80
 
-CMD kedro run && streamlit run streamlit_app.py --server.port=8501 --server.address=0.0.0.0
+CMD ["/app/entrypoint.sh"]

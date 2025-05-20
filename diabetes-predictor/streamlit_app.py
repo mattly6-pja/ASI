@@ -51,7 +51,7 @@ transformed = pd.DataFrame(
     index=input_data.index
 )
 
-if st.button("Predict Stroke Risk"):
+if st.button("Przewiduj ryzyko cukrzycy"):
     proba = model.predict_proba(transformed)[0][1]
     percent = int(round(proba * 100))
 
@@ -97,7 +97,10 @@ if st.button("Predict Stroke Risk"):
                 negative_features.append(
                     "Podwyższony poziom glukozy to **poważny czynnik ryzyka cukrzycy** – kontroluj go regularnie.")
         elif "bmi" in feat:
-            if is_positive:
+            if bmi < 18.5:
+                negative_features.append(
+                    f"Twoje BMI ({bmi:.2f}) **jest zbyt niskie** – warto skonsultować się z lekarzem.")
+            elif is_positive:
                 positive_features.append(
                     f"Twoje BMI ({bmi:.2f}) **wygląda w porządku i przyczynia się do zmniejszenia ryzyka cukrzycy**.")
             else:
