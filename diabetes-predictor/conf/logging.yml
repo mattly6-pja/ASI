@@ -36,7 +36,7 @@ loggers:
   kedro:
     level: INFO
 
-  stroke_predictor:
+  diabetes_predictor:
     level: INFO
 
 root:

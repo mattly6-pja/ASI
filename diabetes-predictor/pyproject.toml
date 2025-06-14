@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 requires-python = ">=3.9"
-name = "stroke_predictor"
+name = "diabetes_predictor"
 readme = "README.md"
 dynamic = ["version"]
 dependencies = [
@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [project.scripts]
-"stroke-predictor" = "stroke_predictor.__main__:main"
+"stroke-predictor" = "diabetes_predictor.__main__:main"
 
 [project.entry-points."kedro.hooks"]
 
@@ -39,15 +39,15 @@ dev = [
 ]
 
 [tool.setuptools.dynamic]
-version = {attr = "stroke_predictor.__version__"}
+version = {attr = "diabetes_predictor.__version__"}
 
 [tool.setuptools.packages.find]
 where = ["src"]
 namespaces = false
 
 [tool.kedro]
-package_name = "stroke_predictor"
-project_name = "stroke_predictor"
+package_name = "diabetes_predictor"
+project_name = "diabetes_predictor"
 kedro_init_version = "0.19.12"
 tools = "['Linting', 'Testing', 'Custom Logging', 'Documentation', 'Data Structure']"
 example_pipeline = "False"
@@ -56,7 +56,7 @@ source_dir = "src"
 [tool.pytest.ini_options]
 addopts = """
 --cov-report term-missing \
---cov src/stroke_predictor -ra"""
+--cov src/diabetes_predictor -ra"""
 
 [tool.coverage.report]
 fail_under = 0

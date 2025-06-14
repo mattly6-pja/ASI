@@ -6,7 +6,7 @@ def create_pipeline(**kwargs) -> Pipeline:
     return pipeline([
         node(
             func=split_data,
-            inputs=["scaled_data"],
+            inputs=["preprocessed_data"],
             outputs="split_output",
             name="split_data_node",
         ),

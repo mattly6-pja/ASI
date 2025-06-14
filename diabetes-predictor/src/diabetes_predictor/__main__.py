@@ -1,5 +1,5 @@
-"""stroke_predictor file for ensuring the package is executable
-as `stroke-predictor` and `python -m stroke_predictor`
+"""diabetes_predictor file for ensuring the package is executable
+as `diabetes-predictor` and `python -m diabetes_predictor`
 """
 import sys
 from pathlib import Path
