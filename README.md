@@ -19,6 +19,6 @@ To run, after cloning:
 7. After kedro is finished, you can run the app via streamlit:  
    `streamlit run streamlit_app.py`  
 
-Exploratory data analysis is available in [eda.html](/diabetes-predictor/docs/eda.html)
+Exploratory data analysis is available in [eda.html](/diabetes-predictor/docs/eda_diabetes.html)
 
 Metrics for the models are available in mertrics file at: /diabetes-predictor/data/08_reporting/best_models_metrics.csv
